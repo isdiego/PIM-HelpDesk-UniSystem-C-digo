@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<table class="table">
+<table class="table table-l">
     <tr>
         <th>
             @Html.DisplayName("Descrição do chamado")
@@ -35,7 +35,9 @@
         <th>
             @Html.DisplayName("Usuário")
         </th>
-        <th></th>
+        <th>
+            Ações
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -58,11 +60,26 @@
         <td>
             @Html.DisplayFor(modelItem => item.US_USUARIOS.NOME_USUARIO)
         </td>
-        <td>
-            @Html.ActionLink("Atender", "Edit", new { id=item.ID_CHAMADO }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ID_CHAMADO }) |
-            @Html.ActionLink("Deletar", "Delete", new { id=item.ID_CHAMADO })
-        </td>
+        <td class="ed-link teste">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fas fa-edit icons-espa"></i>
+                </span>
+                @Html.ActionLink("Atender", "Edit", new { id = item.ID_CHAMADO }) 
+                </div>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fas fa-search-plus icons-espa"></i>
+                </span>
+                @Html.ActionLink("Detalhes", "Details", new { id = item.ID_CHAMADO })
+                </div>
+            <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fas fa-trash-alt icons-espa"></i>
+            </span>
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.ID_CHAMADO })
+                </div>
+</td>
     </tr>
 }
 

@@ -12,30 +12,45 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.EMAIL_USUARIO, "Email:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EMAIL_USUARIO, new { htmlAttributes = new { @class = "form-control", placeholder = "exemplo@exemplo.com" } })
-                @Html.ValidationMessageFor(model => model.EMAIL_USUARIO, "", new { @class = "text-danger" })
+        <div class="form-f">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.EMAIL_USUARIO, "", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fas fa-envelope icons-espa"></i>
+                        </span>
+                        @Html.EditorFor(model => model.EMAIL_USUARIO, new { htmlAttributes = new { @class = "form-control", placeholder = "E-mail: exemplo@exemplo.com" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.EMAIL_USUARIO, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SENHA_USUARIO, "Senha:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SENHA_USUARIO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SENHA_USUARIO, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.SENHA_USUARIO, "", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fas fa-key icons-espa"></i>
+                        </span>
+                        @Html.EditorFor(model => model.SENHA_USUARIO, new { htmlAttributes = new { @class = "form-control", placeholder = "Senha" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.SENHA_USUARIO, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Entrar" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Entrar" class="btn btn-default btn-c" />
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @ViewBag.Message
+            <div class="form-group">
+                @ViewBag.Message
+            </div>
+            <div class="form-group msg-user">
+                Caso não tenha cadastro entre em contato com administrador !
+            </div>
         </div>
     </div>
 }
