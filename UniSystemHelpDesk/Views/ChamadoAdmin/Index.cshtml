@@ -10,7 +10,10 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            @Html.ActionLink("Voltar", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+            
+        </div>
+        <div>
+            @Html.ActionLink("Voltar", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand btn-newvs" })
         </div>
     </div>
 </div>
@@ -61,25 +64,10 @@
             @Html.DisplayFor(modelItem => item.US_USUARIOS.NOME_USUARIO)
         </td>
         <td class="ed-link teste">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fas fa-edit icons-espa"></i>
-                </span>
-                @Html.ActionLink("Atender", "Edit", new { id = item.ID_CHAMADO }) 
-                </div>
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fas fa-search-plus icons-espa"></i>
-                </span>
-                @Html.ActionLink("Detalhes", "Details", new { id = item.ID_CHAMADO })
-                </div>
-            <div class="input-group">
-            <span class="input-group-addon">
-                <i class="fas fa-trash-alt icons-espa"></i>
-            </span>
-                    @Html.ActionLink("Deletar", "Delete", new { id = item.ID_CHAMADO })
-                </div>
-</td>
+            <a href="@Url.Action("Edit", "ChamadoAdmin", new{ id = item.ID_CHAMADO, @title="Atender" })" class="fas fa-edit icons-espa" title="Atender"></a>
+            <a href="@Url.Action("Details", "ChamadoAdmin", new { id = item.ID_CHAMADO, @title = "Detalhes" })" class="fas fa-search-plus icons-espa" title="Detalhes"></a>
+            <a href="@Url.Action("Delete", "ChamadoAdmin", new { id = item.ID_CHAMADO, @title = "Deletar" })" class="fas fa-trash-alt icons-espa" title="Deletar"></a>
+        </td>
     </tr>
 }
 

@@ -22,7 +22,8 @@ namespace UniSystemHelpDesk.Models
     {
         [Required(ErrorMessage = "Preecha o campo", AllowEmptyStrings = false)]
         [EmailAddress(ErrorMessage="E-mail invalido")]
-        [Remote("UsuarioDisponivel", "Conta", ErrorMessage = "E-mail já cadastrado!")]
+
+        ////[Remote("UsuarioDisponivel", "Conta", ErrorMessage = "E-mail já cadastrado!")]
         
         public string EMAIL_USUARIO { get; set; }
         [Required(ErrorMessage = "Preecha o campo", AllowEmptyStrings=false)]

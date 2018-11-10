@@ -9,15 +9,14 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            @Html.ActionLink("Inicio", "Index", "Usuario/Index", new { area = "" }, new { @class = "navbar-brand" })
-            @Html.ActionLink("Novo Chamado", "Index", "ChamadoUser/Create", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Novo Chamado", "Index", "ChamadoUser/Create", new { area = "" }, new { @class = "navbar-brand btn-new" })
         </div>
         <div>
-            @Html.ActionLink("Sair", "Logout", "Conta", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Voltar", "Index", "Usuario/Index", new { area = "" }, new { @class = "navbar-brand btn-newvs" })
         </div>
     </div>
 </div>
-<table class="table">
+<table class="table table-l">
     <tr>
         <th>
             @Html.DisplayName("Cód chamado")
@@ -35,42 +34,33 @@
             @Html.DisplayName("Status")
         </th>
         <th>
-            @Html.DisplayName("Comentários")
+            Ações
         </th>
-        <th>
-            @Html.DisplayName("Usuário")
-        </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_CHAMADO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CHAMADO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DATA_CRIACAO_CHAMADO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.US_EQUIPAMENTO.EQUIPAMENTO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.US_STATUS.STATUS_CHAMADO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.COMENTARIOS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.US_USUARIOS.NOME_USUARIO)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id = item.ID_CHAMADO }) |
-            @Html.ActionLink("Detalhes", "Details", new { id = item.ID_CHAMADO })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_CHAMADO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHAMADO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATA_CRIACAO_CHAMADO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.US_EQUIPAMENTO.EQUIPAMENTO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.US_STATUS.STATUS_CHAMADO)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "ChamadoUser", new{ id = item.ID_CHAMADO, @title="Editar" })" class="fas fa-edit icons-espa" title="Editar"></a>
+                <a href="@Url.Action("Details", "ChamadoUser", new { id = item.ID_CHAMADO, @title = "Detalhes" })" class="fas fa-search-plus icons-espa" title="Detalhes"></a>
+            </td>
+        </tr>
+    }
 
 </table>

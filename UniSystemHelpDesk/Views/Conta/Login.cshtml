@@ -4,6 +4,18 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="img-logoci">
+                <img class="img-logoi" src="~/Content/img/UniSystem Icon.png" alt="Alternate Text"/>
+            </div>
+            <div class="btn-marginr">
+                @Html.ActionLink("Sobre a UniSystem", "sobreunisystem", "Conta", new { area = "" }, new { @class = "navbar-brand btn-new" })
+            </div>
+        </div>
+    </div>
+</div>
 
 <h2>Login</h2>
 

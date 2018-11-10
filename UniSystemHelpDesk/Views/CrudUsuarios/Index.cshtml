@@ -4,14 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Cadastra Usuário</h2>
+<h2>Usuários</h2>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            @Html.ActionLink("Voltar", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
-            @Html.ActionLink("Novo Cadastro", "Create", "CrudUsuarios", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Novo Cadastro", "Create", "CrudUsuarios", new { area = "" }, new { @class = "navbar-brand btn-new" })
         </div>
-    </div>
+        <div>
+            @Html.ActionLink("Voltar", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand btn-newvs" })
+        </div>
+     </div>
 </div>
 <table class="table table-l">
     <tr>
@@ -45,25 +47,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.US_TIPO_USUARIO.TIPO_USUARIO)
             </td>
-            <td>
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="fas fa-edit icons-espa"></i>
-                    </span>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID_USUARIOS })
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="fas fa-search-plus icons-espa"></i>
-                    </span>
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.ID_USUARIOS })
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="fas fa-trash-alt icons-espa"></i>
-                    </span>
-                    @Html.ActionLink("Deletar", "Delete", new { id = item.ID_USUARIOS })
-                </div>
+            <td class="ed-link teste">
+                <a href="@Url.Action("Editar", "Edit", new { id = item.ID_USUARIOS, @title = "Editar" })" class="fas fa-edit icons-espa" title="Editar"></a>
+                <a href="@Url.Action("Detalhes", "Details", new { id = item.ID_USUARIOS, @title = "Detalhes" })" class="fas fa-search-plus icons-espa" title="Detalhes"></a>
+                <a href="@Url.Action("Deletar", "Delete", new { id = item.ID_USUARIOS, @title = "Deletar" })" class="fas fa-trash-alt icons-espa" title="Deletar"></a>
             </td>
         </tr>
     }
